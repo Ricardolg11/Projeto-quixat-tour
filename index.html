@@ -1,81 +1,288 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quixa Tour - Início</title>
-    <!-- Referenciando o CSS global e o CSS específico desta página -->
-    <link rel="stylesheet" href="geral.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Quixa Tour — Catálogo dos principais pontos históricos e turísticos de Quixadá, Ceará." />
+  <title>Quixa Tour | Catálogo Turístico</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Quixa Tour</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="nav-link">Catálogo</a></li>
-                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
-                <li><a href="radar.html" class="nav-link">Radar de Serviços</a></li>
-                <li><a href="passeios.html" class="nav-link">Passeios</a></li>
-                <li><a href="login.html" class="nav-link">Login</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section>
-            <h2>Catálogo Histórico-Turístico</h2>
-            <p>Explore os principais pontos turísticos de Quixadá. Informações e belezas dos monólitos ao seu alcance.</p>
-            
-            <!-- INÍCIO DO SLIDE EM CSS PURO -->
-            <div class="slider-container">
-                <div class="slider-wrapper">
-                    <div class="slide">
-                        <img src="https://via.placeholder.com/1200x400?text=Monolitos+de+Quixada" alt="Vista panorâmica dos monólitos de Quixadá">
-                    </div>
-                    <div class="slide">
-                        <img src="https://via.placeholder.com/1200x400?text=Acude+do+Cedro" alt="Pôr do sol maravilhoso no Açude do Cedro">
-                    </div>
-                    <div class="slide">
-                        <img src="https://via.placeholder.com/1200x400?text=Santuario+Rainha+do+Sertao" alt="Turistas visitando o Santuário Rainha do Sertão">
-                    </div>
-                </div>
+  <!-- ═══════════════════════════════════════
+       HEADER / NAVEGAÇÃO
+  ═══════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Menu principal">
+      <a class="logo" href="index.html" aria-label="Quixa Tour - Página inicial">
+        Quixa<span>Tour</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+              aria-label="Abrir ou fechar menu de navegação">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="index.html" class="ativo" aria-current="page">Catálogo</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="radar.html">Radar Gastronômico</a></li>
+        <li><a href="passeios.html">Passeios</a></li>
+        <li><a href="login.html">Entrar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       MAIN
+  ═══════════════════════════════════════ -->
+  <main>
+
+    <!-- HERO ─────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="hero-content">
+        <span class="hero-badge">✦ Quixadá, Ceará</span>
+        <h1 id="hero-titulo">Descubra a<br /><em>Terra dos Monólitos</em></h1>
+        <p class="hero-sub">
+          Um guia digital completo para explorar a história, a cultura e as belezas naturais de Quixadá com acessibilidade e praticidade.
+        </p>
+        <div class="hero-ctas">
+          <a href="#catalogo" class="btn btn-primario">Explorar Locais</a>
+          <a href="passeios.html" class="btn btn-outline">Ver Passeios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS ────────────────────────────── -->
+    <div class="stats-strip" aria-label="Estatísticas da plataforma">
+      <div class="stats-flex">
+        <div class="stat-item">
+          <span class="numero" aria-label="Mais de 30 pontos mapeados">30+</span>
+          <span class="label">Pontos Mapeados</span>
+        </div>
+        <div class="stat-item">
+          <span class="numero" aria-label="Mais de 12 guias cadastrados">12</span>
+          <span class="label">Guias Cadastrados</span>
+        </div>
+        <div class="stat-item">
+          <span class="numero" aria-label="Mais de 48 restaurantes parceiros">48</span>
+          <span class="label">Restaurantes</span>
+        </div>
+        <div class="stat-item">
+          <span class="numero" aria-label="Mais de 5 mil turistas atendidos">5k+</span>
+          <span class="label">Turistas Atendidos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATÁLOGO ─────────────────────────── -->
+    <section class="secao" id="catalogo" aria-labelledby="catalogo-titulo">
+      <div class="container">
+        <div class="secao-titulo">
+          <h2 id="catalogo-titulo">Catálogo Histórico-Turístico</h2>
+          <p>Pontos icônicos carregados direto da nossa API. Clique para explorar cada local.</p>
+          <span class="linha" aria-hidden="true"></span>
+        </div>
+
+        <!-- Os cards serão injetados aqui via JavaScript -->
+        <div id="cards-locais" class="cards-grid" role="list" aria-live="polite" aria-label="Lista de pontos turísticos">
+          <div class="loading-container">
+            <div class="spinner" role="status" aria-label="Carregando pontos turísticos"></div>
+            <p>Carregando pontos turísticos…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE STRIP ────────────────────── -->
+    <section class="secao secao-alt" aria-labelledby="feature-titulo">
+      <div class="container">
+        <div class="secao-titulo">
+          <h2 id="feature-titulo">Por que usar o Quixa Tour?</h2>
+          <p>Uma plataforma pensada de ponta a ponta para turistas, guias e comerciantes locais.</p>
+          <span class="linha" aria-hidden="true"></span>
+        </div>
+        <div class="cards-grid">
+          <article class="card animar-entrada" role="listitem">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80"
+                   alt="Vista panorâmica de monólitos de granito ao entardecer em Quixadá" />
+              <figcaption>Trilhas & Natureza</figcaption>
+            </figure>
+            <div class="card-corpo">
+              <span class="card-tag verde">Ecoturismo</span>
+              <h3>Roteiros de Trilhas</h3>
+              <p>Navegue pelas melhores trilhas com informações de dificuldade, distância e pontos de interesse em cada percurso.</p>
             </div>
-            <!-- FIM DO SLIDE -->
+          </article>
 
-            <div id="catalogo">
-                <article class="card-turistico">
-                    <h3>Pedra da Galinha Choca</h3>
-                    <figure>
-                        <img src="https://via.placeholder.com/400x250?text=Galinha+Choca" alt="Formação rochosa Pedra da Galinha Choca em Quixadá">
-                        <figcaption>Cartão-postal da cidade - Quixadá/CE</figcaption>
-                    </figure>
-                    <p>Famosa formação rochosa nos monólitos de Quixadá, ideal para contemplação e trilhas leves.</p>
-                </article>
-
-                <article class="card-turistico">
-                    <h3>Açude do Cedro</h3>
-                    <figure>
-                        <img src="https://via.placeholder.com/400x250?text=Acude+do+Cedro" alt="Águas do Açude do Cedro com monólitos ao fundo">
-                        <figcaption>Primeira grande obra hídrica do Brasil.</figcaption>
-                    </figure>
-                    <p>Com um pôr do sol inesquecível, é um marco histórico do combate à seca no Nordeste.</p>
-                </article>
-
-                <article class="card-turistico">
-                    <h3>Santuário Rainha do Sertão</h3>
-                    <figure>
-                        <img src="https://via.placeholder.com/400x250?text=Santuario+Rainha+do+Sertao" alt="Vista frontal do Santuário Nossa Senhora Imaculada Rainha do Sertão">
-                        <figcaption>Rota de peregrinação e turismo religioso.</figcaption>
-                    </figure>
-                    <p>Complexo religioso no alto da serra com vista panorâmica para todo o sertão central.</p>
-                </article>
+          <article class="card animar-entrada" role="listitem">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80"
+                   alt="Mesa posta com pratos típicos da culinária nordestina" />
+              <figcaption>Gastronomia Regional</figcaption>
+            </figure>
+            <div class="card-corpo">
+              <span class="card-tag dourado">Gastronomia</span>
+              <h3>Radar Gastronômico</h3>
+              <p>Encontre restaurantes, lanchonetes e barracas próximos aos pontos turísticos com avaliações e especialidades.</p>
             </div>
-        </section>
-    </main>
+          </article>
 
-    <footer>
-        <p>&copy; 2026 Quixa Tour - Sistema Integrado de Apoio ao Turismo Local</p>
-    </footer>
+          <article class="card animar-entrada" role="listitem">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80"
+                   alt="Guia turístico mostrando a paisagem do sertão cearense a um grupo de visitantes" />
+              <figcaption>Guias Locais</figcaption>
+            </figure>
+            <div class="card-corpo">
+              <span class="card-tag">Guias</span>
+              <h3>Guias Certificados</h3>
+              <p>Conecte-se com guias locais credenciados que conhecem a fundo cada história e peculiaridade da cidade.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA ──────────────────────────────── -->
+    <div class="cta-band" role="complementary" aria-label="Chamada para ação">
+      <div class="container">
+        <h2>Pronto para explorar Quixadá?</h2>
+        <p>Crie sua conta gratuitamente e acesse roteiros exclusivos, promoções de guias locais e muito mais.</p>
+        <a href="login.html" class="btn btn-primario">Criar Conta Grátis</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; 2025 <strong>Quixa Tour</strong> — Sistema Integrado de Apoio ao Turismo Local</p>
+    <nav class="footer-links" aria-label="Links do rodapé">
+      <a href="index.html">Catálogo</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="radar.html">Radar</a>
+      <a href="passeios.html">Passeios</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+    /* ─── Menu hambúrguer ─── */
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const aberto = navLinks.classList.toggle('aberto');
+      toggle.setAttribute('aria-expanded', aberto);
+    });
+
+    /* ─── Fetch da API ─── */
+    const API_URL = 'http://localhost:3000/api/locais';
+
+    async function carregarLocais() {
+      const container = document.getElementById('cards-locais');
+
+      try {
+        const resposta = await fetch(API_URL);
+        if (!resposta.ok) throw new Error(`Erro HTTP: ${resposta.status}`);
+        const locais = await resposta.json();
+        renderizarCards(locais);
+      } catch (erro) {
+        console.warn('API indisponível — usando dados de fallback.', erro.message);
+        renderizarCards(dadosFallback);
+      }
+    }
+
+    function renderizarCards(locais) {
+      const container = document.getElementById('cards-locais');
+      if (!locais || locais.length === 0) {
+        container.innerHTML = '<p style="text-align:center;color:var(--cor-texto-suave);">Nenhum local encontrado.</p>';
+        return;
+      }
+
+      container.innerHTML = locais.map((local, i) => `
+        <article class="card animar-entrada" role="listitem" style="animation-delay:${i * 0.1}s">
+          <figure>
+            <img src="${local.imagem}" alt="${local.imgAlt || 'Foto de ' + local.nome}" loading="lazy" />
+            <figcaption>${local.categoria}</figcaption>
+          </figure>
+          <div class="card-corpo">
+            <span class="card-tag ${local.tagClasse || ''}">${local.tipo}</span>
+            <h3>${local.nome}</h3>
+            <p>${local.descricao}</p>
+            <a href="#" class="btn btn-primario" style="padding:.55rem 1.1rem;font-size:.8rem;"
+               aria-label="Ver detalhes sobre ${local.nome}">Ver Detalhes</a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    /* ─── Fallback data (caso a API esteja offline) ─── */
+    const dadosFallback = [
+      {
+        nome: "Pedra da Galinha Choca",
+        tipo: "Monólito",
+        tagClasse: "",
+        categoria: "Patrimônio Natural",
+        descricao: "O símbolo de Quixadá. Uma imensa rocha granítica que lembra a silhueta de uma galinha chocando. Vista obrigatória.",
+        imagem: "https://images.unsplash.com/photo-1617791160536-598cf32026fb?w=600&q=80",
+        imgAlt: "Grande rocha granítica em formato de galinha em Quixadá ao pôr do sol"
+      },
+      {
+        nome: "Açude do Cedro",
+        tipo: "Patrimônio Histórico",
+        tagClasse: "verde",
+        categoria: "Engenharia Histórica",
+        descricao: "Uma das primeiras grandes obras de engenharia do Ceará, inaugurado em 1906. Cenário deslumbrante para pesca e passeios de barco.",
+        imagem: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+        imgAlt: "Açude de grande porte cercado por monólitos no sertão cearense"
+      },
+      {
+        nome: "Igreja Matriz N. S. do Rosário",
+        tipo: "Patrimônio Cultural",
+        tagClasse: "dourado",
+        categoria: "Arquitetura Religiosa",
+        descricao: "Igreja histórica no coração da cidade, com arquitetura colonial e artefatos que remontam ao século XIX.",
+        imagem: "https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80",
+        imgAlt: "Fachada de uma Igreja colonial branca com torres sineiras ao entardecer"
+      },
+      {
+        nome: "Serra do Estevão",
+        tipo: "Trilha",
+        tagClasse: "verde",
+        categoria: "Ecoturismo",
+        descricao: "Trilha de dificuldade moderada com vista privilegiada dos monólitos e do açude. Recomendada para o nascer do sol.",
+        imagem: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80",
+        imgAlt: "Trilha rochosa com vista panorâmica de uma cadeia de monólitos de granito"
+      },
+      {
+        nome: "Museu de Arte Sacra",
+        tipo: "Cultura",
+        tagClasse: "dourado",
+        categoria: "Museu",
+        descricao: "Acervo com imagens sacras, documentos históricos e objetos religiosos que contam séculos da história de Quixadá.",
+        imagem: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=600&q=80",
+        imgAlt: "Interior de um museu com vitrines iluminadas exibindo objetos históricos"
+      },
+      {
+        nome: "Balança — UECE/UFC",
+        tipo: "Cultura & Educação",
+        tagClasse: "",
+        categoria: "Polo Universitário",
+        descricao: "O polo universitário transformou Quixadá em referência em tecnologia e inovação no Ceará. Conheça o campus.",
+        imagem: "https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80",
+        imgAlt: "Campus universitário moderno com prédio de fachada envidraçada"
+      }
+    ];
+
+    carregarLocais();
+  </script>
+
 </body>
 </html>

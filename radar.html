@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Radar Gastronômico — Restaurantes e lanchonetes próximos aos pontos turísticos de Quixadá, CE." />
+  <title>Quixa Tour | Radar Gastronômico</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Menu principal">
+      <a class="logo" href="index.html" aria-label="Quixa Tour - Página inicial">Quixa<span>Tour</span></a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"
+              aria-label="Abrir ou fechar menu de navegação">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="radar.html" class="ativo" aria-current="page">Radar Gastronômico</a></li>
+        <li><a href="passeios.html">Passeios</a></li>
+        <li><a href="login.html">Entrar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO ─────────────────────────────── -->
+    <section class="sobre-hero" aria-labelledby="radar-titulo">
+      <span class="hero-badge" style="animation:fadeSlideDown .8s ease both;">✦ Gastronomia Local</span>
+      <h1 id="radar-titulo">Radar<br /><em style="color:var(--cor-destaque);">Gastronômico</em></h1>
+      <p>
+        Descubra restaurantes, lanchonetes e barracas próximos aos principais pontos turísticos de Quixadá.
+        Comida boa faz parte da viagem!
+      </p>
+    </section>
+
+    <!-- MAPA PLACEHOLDER ─────────────────── -->
+    <section class="secao" aria-labelledby="mapa-titulo">
+      <div class="container">
+        <div class="secao-titulo">
+          <h2 id="mapa-titulo">Localize Pelo Mapa</h2>
+          <p>Veja a distribuição geográfica dos estabelecimentos em relação aos pontos turísticos.</p>
+          <span class="linha" aria-hidden="true"></span>
+        </div>
+
+        <figure>
+          <div class="mapa-container" role="img" aria-label="Mapa interativo de Quixadá com localização dos restaurantes">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 aria-hidden="true">
+              <circle cx="32" cy="32" r="30" stroke="var(--cor-primaria)" stroke-width="2" stroke-dasharray="8 4"/>
+              <circle cx="32" cy="28" r="10" fill="var(--cor-primaria)" opacity=".2" />
+              <circle cx="32" cy="28" r="5" fill="var(--cor-primaria)" />
+              <path d="M32 38 C32 38 20 52 20 52" stroke="var(--cor-primaria)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="20" cy="52" r="3" fill="var(--cor-destaque)" />
+              <circle cx="44" cy="44" r="3" fill="var(--cor-secundaria)" />
+              <circle cx="38" cy="50" r="3" fill="var(--cor-destaque)" />
+            </svg>
+            <p>
+              Mapa interativo disponível com integração Google Maps.<br />
+              <strong style="color:var(--cor-primaria);">Em breve na versão completa.</strong>
+            </p>
+          </div>
+          <figcaption
+            style="font-family:var(--fonte-ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--cor-texto-suave);margin-top:.6rem;text-align:center;">
+            Mapa de distribuição dos estabelecimentos — Quixadá, CE
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- FILTROS + LISTAGEM ────────────────── -->
+    <section class="secao secao-alt" aria-labelledby="lista-titulo">
+      <div class="container">
+        <div class="secao-titulo">
+          <h2 id="lista-titulo">Estabelecimentos Cadastrados</h2>
+          <p>Filtre por categoria para encontrar o que melhor combina com seu momento.</p>
+          <span class="linha" aria-hidden="true"></span>
+        </div>
+
+        <!-- Filtros -->
+        <div class="radar-filtros" role="group" aria-label="Filtros de categoria">
+          <button class="filtro-btn ativo" data-filtro="todos" aria-pressed="true">Todos</button>
+          <button class="filtro-btn" data-filtro="restaurante" aria-pressed="false">Restaurantes</button>
+          <button class="filtro-btn" data-filtro="lanchonete" aria-pressed="false">Lanchonetes</button>
+          <button class="filtro-btn" data-filtro="cafe" aria-pressed="false">Cafés</button>
+          <button class="filtro-btn" data-filtro="barraca" aria-pressed="false">Barracas</button>
+        </div>
+
+        <!-- Cards de Restaurantes -->
+        <div id="lista-restaurantes" class="cards-grid" role="list" aria-label="Lista de estabelecimentos gastronômicos">
+
+          <article class="restaurante-card animar-entrada" role="listitem" data-categoria="restaurante">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80"
+                   alt="Mesa bem servida com pratos típicos nordestinos como baião de dois e carne de sol"
+                   loading="lazy" />
+              <figcaption>Restaurante — Centro</figcaption>
+            </figure>
+            <div class="restaurante-info">
+              <div class="estrelas" aria-label="Avaliação: 5 estrelas">★★★★★</div>
+              <h3>Sabores do Sertão</h3>
+              <p class="distancia">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <circle cx="6" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 9 C6 9 2 12 2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                150m da Pedra da Galinha Choca
+              </p>
+              <p>Especialidades: baião de dois, carne de sol ao manteiga, buchada e feijão verde com paçoca.</p>
+              <p style="font-family:var(--fonte-ui);font-size:.8rem;color:var(--cor-texto-suave);margin-top:.4rem;">
+                Seg-Dom: 11h–15h | Ter-Dom: 18h–22h
+              </p>
+            </div>
+          </article>
+
+          <article class="restaurante-card animar-entrada" role="listitem" data-categoria="lanchonete">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&q=80"
+                   alt="Lanche artesanal com carne assada, queijo coalho e temperos nordestinos sobre tábua de madeira"
+                   loading="lazy" />
+              <figcaption>Lanchonete — Açude do Cedro</figcaption>
+            </figure>
+            <div class="restaurante-info">
+              <div class="estrelas" aria-label="Avaliação: 4 estrelas">★★★★☆</div>
+              <h3>Canto do Açude</h3>
+              <p class="distancia">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <circle cx="6" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 9 C6 9 2 12 2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                80m do Açude do Cedro
+              </p>
+              <p>Lanches artesanais, tapioca recheada, sucos naturais de frutas do sertão e café coado na hora.</p>
+              <p style="font-family:var(--fonte-ui);font-size:.8rem;color:var(--cor-texto-suave);margin-top:.4rem;">
+                Ter-Dom: 07h–18h
+              </p>
+            </div>
+          </article>
+
+          <article class="restaurante-card animar-entrada" role="listitem" data-categoria="cafe">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80"
+                   alt="Xícara de café especial com espuma artística em cafeteria de decoração rústica"
+                   loading="lazy" />
+              <figcaption>Café — Praça Central</figcaption>
+            </figure>
+            <div class="restaurante-info">
+              <div class="estrelas" aria-label="Avaliação: 5 estrelas">★★★★★</div>
+              <h3>Café Monolito</h3>
+              <p class="distancia">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <circle cx="6" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 9 C6 9 2 12 2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                200m da Igreja Matriz
+              </p>
+              <p>Café de origem local, bolos caseiros, croissants e brunchs aos fins de semana com vista para a praça histórica.</p>
+              <p style="font-family:var(--fonte-ui);font-size:.8rem;color:var(--cor-texto-suave);margin-top:.4rem;">
+                Ter-Dom: 07h–20h
+              </p>
+            </div>
+          </article>
+
+          <article class="restaurante-card animar-entrada" role="listitem" data-categoria="restaurante">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80"
+                   alt="Prato de frango assado com farofa, arroz branco e salada colorida em restaurante rústico"
+                   loading="lazy" />
+              <figcaption>Restaurante — Serra do Estevão</figcaption>
+            </figure>
+            <div class="restaurante-info">
+              <div class="estrelas" aria-label="Avaliação: 4 estrelas">★★★★☆</div>
+              <h3>Mirante do Sertão</h3>
+              <p class="distancia">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <circle cx="6" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 9 C6 9 2 12 2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                500m da Serra do Estevão
+              </p>
+              <p>Almoço regional com vista panorâmica. Pratos servidos em panela de barro, especialidade em frango caipira.</p>
+              <p style="font-family:var(--fonte-ui);font-size:.8rem;color:var(--cor-texto-suave);margin-top:.4rem;">
+                Sáb-Dom: 10h–17h
+              </p>
+            </div>
+          </article>
+
+          <article class="restaurante-card animar-entrada" role="listitem" data-categoria="barraca">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80"
+                   alt="Barraca de alimentação com espetinhos grelhados e bebidas geladas ao ar livre"
+                   loading="lazy" />
+              <figcaption>Barraca — Orla do Açude</figcaption>
+            </figure>
+            <div class="restaurante-info">
+              <div class="estrelas" aria-label="Avaliação: 4 estrelas">★★★★☆</div>
+              <h3>Barraca do Zé Pescador</h3>
+              <p class="distancia">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <circle cx="6" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 9 C6 9 2 12 2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                10m da Orla do Açude
+              </p>
+              <p>Peixe fresco na brasa, tilápia assada, camarão e bebidas geladas. Ambiente familiar à beira do açude.</p>
+              <p style="font-family:var(--fonte-ui);font-size:.8rem;color:var(--cor-texto-suave);margin-top:.4rem;">
+                Sex-Dom: 11h–19h
+              </p>
+            </div>
+          </article>
+
+          <article class="restaurante-card animar-entrada" role="listitem" data-categoria="lanchonete">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80"
+                   alt="Prato colorido com tapioca recheada de frango e queijo ao lado de copo de suco laranja"
+                   loading="lazy" />
+              <figcaption>Lanchonete — Poliesportivo</figcaption>
+            </figure>
+            <div class="restaurante-info">
+              <div class="estrelas" aria-label="Avaliação: 5 estrelas">★★★★★</div>
+              <h3>Casa da Tapioca</h3>
+              <p class="distancia">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <circle cx="6" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 9 C6 9 2 12 2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                300m do Campus Universitário
+              </p>
+              <p>A melhor tapioca da cidade em mais de 25 sabores, sucos naturais e vitaminas. Ambiente aconchegante.</p>
+              <p style="font-family:var(--fonte-ui);font-size:.8rem;color:var(--cor-texto-suave);margin-top:.4rem;">
+                Seg-Sáb: 06h–18h
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CADASTRE SEU NEGÓCIO ──────────────── -->
+    <section class="secao" aria-labelledby="cadastro-negocio-titulo">
+      <div class="container">
+        <div class="sobre-grid" style="align-items:center;gap:2rem;">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80"
+              alt="Comerciante local sorrindo na frente do seu restaurante com decoração típica nordestina"
+              loading="lazy"
+              style="border-radius:var(--raio);width:100%;object-fit:cover;max-height:320px;box-shadow:var(--sombra-card);"
+            />
+            <figcaption
+              style="font-family:var(--fonte-ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--cor-texto-suave);margin-top:.5rem;text-align:center;">
+              Comerciantes locais parceiros do Quixa Tour
+            </figcaption>
+          </figure>
+          <div>
+            <h2 id="cadastro-negocio-titulo">Tem um negócio em Quixadá?</h2>
+            <p style="color:var(--cor-texto-suave);margin:.8rem 0 1.5rem;">
+              Cadastre seu restaurante, lanchonete ou barraca gratuitamente e apareça para milhares de turistas
+              que visitam a cidade todos os anos. Visibilidade digital para o seu negócio local.
+            </p>
+            <a href="login.html" class="btn btn-primario">Cadastrar Meu Negócio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; 2025 <strong>Quixa Tour</strong> — Sistema Integrado de Apoio ao Turismo Local</p>
+    <nav class="footer-links" aria-label="Links do rodapé">
+      <a href="index.html">Catálogo</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="radar.html">Radar</a>
+      <a href="passeios.html">Passeios</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </footer>
+
+  <script>
+    /* Menu hambúrguer */
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const aberto = navLinks.classList.toggle('aberto');
+      toggle.setAttribute('aria-expanded', aberto);
+    });
+
+    /* Filtros de categoria */
+    const filtros = document.querySelectorAll('.filtro-btn');
+    const cards = document.querySelectorAll('#lista-restaurantes .restaurante-card');
+
+    filtros.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filtro = btn.dataset.filtro;
+
+        // Atualizar estado ativo dos botões
+        filtros.forEach(b => {
+          b.classList.remove('ativo');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('ativo');
+        btn.setAttribute('aria-pressed', 'true');
+
+        // Filtrar cards
+        cards.forEach(card => {
+          if (filtro === 'todos' || card.dataset.categoria === filtro) {
+            card.style.display = '';
+            card.style.animation = 'fadeSlideUp .5s ease both';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
