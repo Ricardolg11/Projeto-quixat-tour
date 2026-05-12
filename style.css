@@ -1,0 +1,99 @@
+/* index.css */
+/* 3. Seletor por ID */
+#catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card-turistico {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card-turistico:hover {
+    transform: translateY(-5px); /* Efeito de hover no card */
+}
+
+.card-turistico h3 {
+    color: var(--cor-primaria);
+    font-size: 1.2rem;
+}
+
+/* index.css */
+
+/* --- Estilos do Slide (Carrossel em CSS Puro) --- */
+.slider-container {
+    width: 100%;
+    margin: 20px 0 40px 0; /* Margem para separar do texto descritivo e dos cards turísticos */
+    overflow: hidden;      /* Esconde a parte das imagens que extrapolam o container */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.slider-wrapper {
+    display: flex;
+    width: 300%; /* Largura total para acomodar as 3 imagens lado a lado */
+    animation: animacaoSlide 12s infinite; /* Duração de 12 segundos, repetindo infinitamente */
+}
+
+.slide {
+    width: 33.3333%; /* Divide o espaço total igualmente para cada uma das 3 imagens */
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover; /* Mantém a proporção da imagem preenchendo o espaço sem distorcer */
+    display: block;
+}
+
+/* Keyframes para a transição automática das imagens */
+@keyframes animacaoSlide {
+    0%, 25% { transform: translateX(0); }               /* Mantém a 1ª imagem */
+    33%, 58% { transform: translateX(-33.3333%); }      /* Desliza para a 2ª imagem */
+    66%, 91% { transform: translateX(-66.6666%); }      /* Desliza para a 3ª imagem */
+    100% { transform: translateX(0); }                  /* Retorna rapidamente para a 1ª imagem */
+}
+
+/* --- Estilos do Catálogo de Cards --- */
+#catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card-turistico {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.3s ease; /* Transição suave para o efeito de hover */
+}
+
+.card-turistico:hover {
+    transform: translateY(-5px); /* Efeito que levanta o card levemente ao passar o mouse */
+}
+
+.card-turistico h3 {
+    color: var(--cor-primaria); /* Utiliza a variável definida no geral.css */
+    font-size: 1.2rem;
+}
